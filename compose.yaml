@@ -1,0 +1,49 @@
+
+services:
+    python-api-1:
+        build: .
+        ports:
+        - "5100:5501"
+        environment:
+        - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+        depends_on:
+        - db
+
+        develop:
+         watch:
+          - path: .
+            action: rebuild
+
+    python-api-2:
+        build: .
+        ports:
+        - "5200:5501"
+        environment:
+        - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+        depends_on:
+        - db
+
+
+        develop:
+         watch:
+          - path: .
+            action: rebuild
+    
+    db:
+        image: postgres
+        #ports:
+        #- '5432:5432'
+        environment:
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_DB: ${POSTGRES_DB}
+        volumes:
+            - db-data:/var/lib/postgresql/data
+    
+volumes:
+  db-data: 
+
+        
+            
+
+    

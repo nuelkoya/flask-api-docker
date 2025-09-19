@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="form">
+        <form method="POST" action="/submit_data">
+            <input 
+                type="text" 
+                placeholder="What is your favorite food?"
+                id="fav_food"
+                name="fav_food"
+            ></input>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+{% endblock %}
+
+ 

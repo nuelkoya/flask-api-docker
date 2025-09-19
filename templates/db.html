@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card-wrapper">
+        <h2>Here are your favorite foods</h2>
+        <div class="card-list">
+            {% if rows %}
+                {% for row in rows %}
+                    <div class="card">{{ row[1] }}</div>
+                {% endfor %}
+            {% else %}
+                <a href="/">Click to add your favorite food</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

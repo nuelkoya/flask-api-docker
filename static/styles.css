@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+            background-color: white;
+            font-size: 30px;
+            display: flex;
+            column-gap: 50px;
+            justify-content: center;
+            padding-top: 50px;
+            font-weight: 600;
+        }
+a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.form {
+    display: flex;
+    height: calc(100vh - 200px);
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    border-color: purple;
+    font-size: 20px;
+}
+
+button{
+    padding: 10px 25px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+button:hover{
+    scale: 1.1;
+    transition: 1000ms;
+    cursor: pointer;
+}
+
+.card-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px);
+    justify-content: center;
+    align-items: center;
+}
+
+.card-list{
+    display: flex;
+    flex-direction: column;
+    gap:20px
+}
+
+.card-list a{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.card{
+    background-color: green;
+    padding: 20px;
+    width: 250px;
+    height: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+h2{
+    font-size: 30px;
+}

@@ -9,7 +9,7 @@ app = Flask(__name__)
 create_tables()
 
 @app.route("/")
-def hello_world():
+def homepage():
     return render_template('index.html')
 
 @app.route("/health")
@@ -18,7 +18,7 @@ def health():
 
 @app.route("/watch")
 def watch():
-    return "<p>is Docker watching ?? 👀</p>"
+    return "<p>Docker Watch in Action (make some changes)</p>"
 
 @app.route("/db")
 def db_test():

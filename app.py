@@ -12,21 +12,10 @@ create_tables()
 def homepage():
     return render_template('index.html')
 
-@app.route("/health")
-def health():
-    return "<p>OK!</p>"
-
-@app.route("/watch")
-def watch():
-    return "<p>Docker Watch in Action (make some changes)</p>"
-
 @app.route("/db")
 def db_test():
     return get_all_rows()
 
-@app.route("/add/<text>")
-def add_text_route(text):
-    return add_text_to_db(text)
 
 @app.route("/submit_data", methods=['GET', 'POST'])
 def submit_data():

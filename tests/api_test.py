@@ -13,18 +13,6 @@ def test_homepage(client):
     assert response.status_code == 200
     assert b"Add" in response.data
 
-
-def test_health(client):
-    response = client.get("/health")
-    assert response.status_code == 200
-    assert b"<p>OK!</p>" in response.data
-
-
-def test_watch(client):
-    response = client.get("/watch")
-    assert response.status_code == 200
-    assert b"<p>Docker Watch in Action (make some changes)</p>" in response.data
-
 def test_submit_data_get(client):
     response = client.get("/submit_data")
 

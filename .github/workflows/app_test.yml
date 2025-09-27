@@ -69,7 +69,10 @@ jobs:
              sleep 10
 
          - name: Test /health endpoint
-           run: curl --fail http://localhost:5501/
+           run: | 
+           curl --fail http://localhost:5510/
+           curl --fail http://localhost:5520/
+
 
          - name: Stop container
            run: docker rm -f flask-app

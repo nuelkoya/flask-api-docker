@@ -70,8 +70,8 @@ jobs:
 
          - name: Test /health endpoint
            run: | 
-           curl --fail http://localhost:5510/
-           curl --fail http://localhost:5520/
+            curl --fail http://localhost:5510/
+            curl --fail http://localhost:5520/
 
 
          - name: Stop container

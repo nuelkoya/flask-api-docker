@@ -63,19 +63,36 @@ jobs:
 
          - name: Run Flask container
            run: |
-             docker run -d --name flask-app \
+             docker run -d --name flask-app-1 \
                 -e DATABASE_URL=postgresql://${{ secrets.DOCKER_POSTGRES_USER }}:${{ secrets.DOCKER_POSTGRES_PASSWORD }}@localhost:5432/${{ secrets.DOCKER_POSTGRES_DB }} \
-                -p 5501:5501 app-test
+                -p 5510:5501 app-test
              sleep 10
 
-         - name: Test /health endpoint
+             docker run -d --name flask-app-2 \
+                -e DATABASE_URL=postgresql://${{ secrets.DOCKER_POSTGRES_USER }}:${{ secrets.DOCKER_POSTGRES_PASSWORD }}@localhost:5432/${{ secrets.DOCKER_POSTGRES_DB }} \
+                -p 5520:5501 app-test
+             sleep 10
+
+         - name: Test flask-app-1 endpoint
            run: | 
-            curl --fail http://localhost:5510/
-            curl --fail http://localhost:5520/
+            for i in {1..10}; do
+              curl --fail http://localhost:5510/
+              echo "Waiting for flask-app-1"
+              sleep 3
+            done
+
+        - name: Test flask-app-2 endpoint
+           run: | 
+            for i in {1..10}; do
+              curl --fail http://localhost:5520/
+              echo "Waiting for flask-app-2"
+              sleep 3
+            done
+           
 
 
          - name: Stop container
-           run: docker rm -f flask-app
+           run: docker rm -f flask-app-1 flask-app-2
 
 
 

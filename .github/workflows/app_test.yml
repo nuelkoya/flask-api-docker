@@ -81,12 +81,12 @@ jobs:
               sleep 3
             done
 
-        - name: Test flask-app-2 endpoint
+         - name: Test flask-app-2 endpoint
            run: | 
             for i in {1..10}; do
-              curl --fail http://localhost:5520/
-              echo "Waiting for flask-app-2"
-              sleep 3
+               curl --fail http://localhost:5520/
+               echo "Waiting for flask-app-2"
+               sleep 3
             done
            
 
